@@ -1,0 +1,46 @@
+/* Root container styling */
+.root {
+    -fx-background-color: #f0f0f0; /* Light gray background */
+}
+
+/* Thumbnail styling */
+.thumbnail {
+    -fx-border-color: #ccc; /* Light gray border */
+    -fx-border-width: 1px; /* Thin border */
+    -fx-cursor: hand; /* Hand cursor on hover */
+    -fx-effect: dropshadow(three-pass-box, #000, 10, 0, 0, 0); /* Drop shadow effect */
+    -fx-background-radius: 10px; /* Rounded corners */
+    -fx-padding: 10px; /* Padding around thumbnails */
+    -fx-transition: all 0.3s ease; /* Smooth transition */
+}
+
+.thumbnail:hover {
+    -fx-border-color: #007bff; /* Blue border on hover */
+    -fx-effect: dropshadow(three-pass-box, #007bff, 10, 0, 0, 0); /* Enhanced drop shadow on hover */
+    -fx-scale-x: 1.05; /* Scale effect on hover */
+    -fx-scale-y: 1.05;
+}
+
+/* Navigation button styling */
+.navigation-button {
+    -fx-background-color: #007bff; /* Blue background */
+    -fx-text-fill: white; /* White text */
+    -fx-font-size: 14px; /* Font size */
+    -fx-background-radius: 5px; /* Rounded corners */
+    -fx-padding: 8px 16px; /* Padding */
+    -fx-effect: dropshadow(three-pass-box, #000, 10, 0, 0, 0); /* Drop shadow effect */
+    -fx-transition: all 0.3s ease; /* Smooth transition */
+}
+
+.navigation-button:hover {
+    -fx-background-color: #0056b3; /* Darker blue background on hover */
+    -fx-effect: dropshadow(three-pass-box, #0056b3, 10, 0, 0, 0); /* Enhanced drop shadow on hover */
+}
+
+/* Label styling */
+.label {
+    -fx-font-size: 18px; /* Font size */
+    -fx-font-weight: bold; /* Bold font */
+    -fx-text-fill: #333; /* Dark text color */
+    -fx-padding: 10px; /* Padding */
+}
