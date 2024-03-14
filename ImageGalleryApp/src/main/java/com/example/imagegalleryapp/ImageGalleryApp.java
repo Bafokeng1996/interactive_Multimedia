@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class ImageGalleryApp extends Application {
@@ -46,7 +47,14 @@ public class ImageGalleryApp extends Application {
         fullImageView = new ImageView();
         imageLabel = new Label();
 
-        root.setCenter(fullImageView);
+        // Message pane
+        VBox messagePane = new VBox();
+        Label messageLabel = new Label("Click on any image to display");
+        messageLabel.setStyle("-fx-font-size: 18;");
+        messagePane.getChildren().add(messageLabel);
+        messagePane.setAlignment(Pos.CENTER);
+        root.setCenter(messagePane);
+
         root.setLeft(thumbnailGrid);
         root.setTop(imageLabel);
         BorderPane.setAlignment(imageLabel, Pos.CENTER);
@@ -61,29 +69,15 @@ public class ImageGalleryApp extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        showFullImage(new Image(getClass().getResourceAsStream(imagePaths[currentIndex])));
     }
 
-    private void showFullImage(Image image) {
-        fullImageView.setImage(image);
-        fullImageView.setFitWidth(380);
-        fullImageView.setFitHeight(360);
-
-        for (javafx.scene.Node node : thumbnailGrid.getChildren()) {
-            if (node instanceof ImageView) {
-                node.setOpacity(1.0);
-            }
-        }
-
-        imageLabel.setTextFill(root.getStyle().contains("-fx-background-color: black") ? javafx.scene.paint.Color.WHITE : javafx.scene.paint.Color.BLACK);
-        imageLabel.setText("");
-    }
 
     private void showFullImage(Image image, ImageView clickedThumbnail) {
         fullImageView.setImage(image);
         fullImageView.setFitWidth(380);
         fullImageView.setFitHeight(360);
+
+        root.setCenter(fullImageView); // Set the fullImageView as the center of the BorderPane
 
         for (javafx.scene.Node node : thumbnailGrid.getChildren()) {
             if (node instanceof ImageView) {
